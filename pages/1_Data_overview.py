@@ -88,13 +88,6 @@ with col2:
             'NUTS2': layer_NUTS2,
             'NUTS1': layer_NUTS1,
         }
-    
-    if 'center_lat' not in st.session_state:
-        st.session_state['center_lat'] = 48.3
-    if 'center_lon' not in st.session_state:
-        st.session_state['center_lon'] = 11.2
-
-    
     end = time.time()
     print(f"All layers created in {end - start:.2f}s")
 
@@ -138,15 +131,12 @@ with col2:
         st.session_state["nuts_layers"][level].data = features
 
         first = features[0]["properties"]
-        st.session_state['center_lat'] = first.get("CENTER_LAT", 48.3)
-        st.session_state['center_lon'] = first.get("CENTER_LON", 11.2)
 
         st.pydeck_chart(
             pdk.Deck(
                 map_style="mapbox://styles/mapbox/light-v10",
-                initial_view_state=pdk.ViewState(latitude=st.session_state['center_lat'],
-                                                longitude=st.session_state['center_lon'],
-                                                zoom=2.5),
+                initial_view_state=pdk.ViewState(
+                    latitude=48.3, longitude=11.2, zoom=3.5),
                 layers=[st.session_state['nuts_layers'][level]],
                 tooltip={"text": f"{var}: {{{var}}}\nNUTS_ID: {{NUTS_ID}}"}
             )
