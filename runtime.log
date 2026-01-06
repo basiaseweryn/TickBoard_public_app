@@ -1,0 +1,221 @@
+[DEBUG] - 2026-01-06 10:54:47:
+
+Weight Model start fitting with data:
+X.shape: (551, 23)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(criterion='absolute_error', max_features=8,
+                      min_samples_leaf=6, n_estimators=9)
+leave_local_out: True
+sample_local_rate: None
+cache_data: True
+cache_estimator: True
+n_jobs: -1
+n_patches: None
+args: ()
+kwargs: {}
+
+[DEBUG] - 2026-01-06 10:54:47:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (551, 2)
+
+[DEBUG] - 2026-01-06 10:54:47:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (551, 551)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.8
+
+[DEBUG] - 2026-01-06 10:54:47:
+Non-zero weight ratio: 0.8003629764065335
+Average neighbour count: 441.0
+[DEBUG] - 2026-01-06 10:54:47:
+Distance Time: 0.020227670669555664. Kernel Time: 0.03406190872192383
+[DEBUG] - 2026-01-06 10:55:12:
+Parallel fit time: 24.709078550338745
+[DEBUG] - 2026-01-06 10:55:12:
+
+Weight Model start fitting with data:
+X.shape: (551, 23)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(criterion='absolute_error', max_features=8,
+                      min_samples_leaf=6, n_estimators=9)
+leave_local_out: True
+sample_local_rate: None
+cache_data: True
+cache_estimator: True
+n_jobs: -1
+n_patches: None
+args: ()
+kwargs: {}
+
+[DEBUG] - 2026-01-06 10:55:12:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (551, 2)
+
+[DEBUG] - 2026-01-06 10:55:12:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (551, 551)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.8
+
+[DEBUG] - 2026-01-06 10:55:12:
+Non-zero weight ratio: 0.8003629764065335
+Average neighbour count: 441.0
+[DEBUG] - 2026-01-06 10:55:12:
+Distance Time: 0.012362241744995117. Kernel Time: 0.026253700256347656
+[DEBUG] - 2026-01-06 10:55:30:
+Parallel fit time: 18.31570792198181
+[DEBUG] - 2026-01-06 10:55:30:
+
+Weight Model start fitting with data:
+X.shape: (551, 23)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(criterion='absolute_error', max_features=8,
+                      min_samples_leaf=6, n_estimators=9)
+leave_local_out: True
+sample_local_rate: None
+cache_data: True
+cache_estimator: True
+n_jobs: -1
+n_patches: None
+args: ()
+kwargs: {}
+
+[DEBUG] - 2026-01-06 10:55:30:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (551, 2)
+
+[DEBUG] - 2026-01-06 10:55:31:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (551, 551)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.8
+
+[DEBUG] - 2026-01-06 10:55:31:
+Non-zero weight ratio: 0.8003629764065335
+Average neighbour count: 441.0
+[DEBUG] - 2026-01-06 10:55:31:
+Distance Time: 0.009794473648071289. Kernel Time: 0.03207230567932129
+[DEBUG] - 2026-01-06 10:55:48:
+Parallel fit time: 16.601234674453735
+[DEBUG] - 2026-01-06 10:55:48:
+
+Weight Model start fitting with data:
+X.shape: (551, 23)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(criterion='absolute_error', max_features=8,
+                      min_samples_leaf=6, n_estimators=9)
+leave_local_out: True
+sample_local_rate: None
+cache_data: True
+cache_estimator: True
+n_jobs: -1
+n_patches: None
+args: ()
+kwargs: {}
+
+[DEBUG] - 2026-01-06 10:55:48:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (551, 2)
+
+[DEBUG] - 2026-01-06 10:55:48:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (551, 551)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.8
+
+[DEBUG] - 2026-01-06 10:55:48:
+Non-zero weight ratio: 0.8003629764065335
+Average neighbour count: 441.0
+[DEBUG] - 2026-01-06 10:55:48:
+Distance Time: 0.008079051971435547. Kernel Time: 0.021319150924682617
+[DEBUG] - 2026-01-06 10:56:16:
+Parallel fit time: 27.298405647277832
+[DEBUG] - 2026-01-06 10:56:16:
+
+Weight Model start fitting with data:
+X.shape: (551, 23)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(criterion='absolute_error', max_features=8,
+                      min_samples_leaf=6, n_estimators=9)
+leave_local_out: True
+sample_local_rate: None
+cache_data: True
+cache_estimator: True
+n_jobs: -1
+n_patches: None
+args: ()
+kwargs: {}
+
+[DEBUG] - 2026-01-06 10:56:16:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (551, 2)
+
+[DEBUG] - 2026-01-06 10:56:16:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (551, 551)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.8
+
+[DEBUG] - 2026-01-06 10:56:16:
+Non-zero weight ratio: 0.8003629764065335
+Average neighbour count: 441.0
+[DEBUG] - 2026-01-06 10:56:16:
+Distance Time: 0.0037539005279541016. Kernel Time: 0.014172554016113281
+[DEBUG] - 2026-01-06 10:56:33:
+Parallel fit time: 17.415398597717285
+[DEBUG] - 2026-01-06 10:56:35:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (948, 2)
+
+[DEBUG] - 2026-01-06 10:56:35:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (948, 551)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.8
+
+[DEBUG] - 2026-01-06 10:56:35:
+Non-zero weight ratio: 0.8003629764065335
+Average neighbour count: 441.0
+[DEBUG] - 2026-01-06 10:56:35:
+Distance Time: 0.0065364837646484375. Kernel Time: 0.021633386611938477
