@@ -33,7 +33,7 @@ with col1:
     st.divider()
     st.markdown("#### Environmental variables")
     st.markdown("""
-    - EEAmedian = Median value of the vegetation category,
+    - EEAmedian = Median value of the vegetation category (the most represented value in the target cell),
     - EEAminorit = The category of vegetation of the largest patch in the target cell,
     - EEAmajorit = The category of vegetation of the smallest patch in the target cell,
     - EEAvariety = The number of different categories of vegetation in the target cell of the grid,
