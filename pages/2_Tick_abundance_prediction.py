@@ -61,7 +61,7 @@ def map_model_predictions(id='main', title=""):
                     latitude=48.3, longitude=11.2, zoom=3.5
                 ),
                 layers=[layer],
-                tooltip={"html": "<b>Value:</b> {y_pred}"}
+                tooltip={"html": "<b>Annual Ticks in {nuts_id}</b>: {y_pred}", "style": {"color": "white"}}
             )
         )
 

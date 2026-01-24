@@ -178,9 +178,7 @@ with sub_col1:
     This information can be seen on the map on the right side of this page. 
     """)
 with sub_col2:
-    sub_col1, sub_col2, sub_col3 = st.columns([0.2, 1.5, 0.5])
-    with sub_col2:
-        st.markdown("##### Final regional coverage of tick abundance dataset")
+    st.markdown("##### Final regional coverage of tick abundance dataset")
     st.image(data_loader.load_data_coverage_image(), width='stretch')
 
 st.markdown("""
