@@ -3,8 +3,12 @@ import pandas as pd
 import importlib
 import pydeck as pdk
 import time
+import numpy as np
 import utils.data_loader as data_loader
+import utils.model_training as model_training
+from branca.colormap import linear
 importlib.reload(data_loader)
+importlib.reload(model_training)
 st.cache_data.clear()
 
 
@@ -23,6 +27,10 @@ if 'is_training' not in st.session_state:
 st.title("Tick Abundance Prediction")
 st.divider()
 
+if "main_model_range" not in st.session_state:
+    _, min_v, max_v = data_loader.load_model_predictions(id=1)
+    st.session_state["main_model_range"] = (min_v, max_v)
+
 def get_available_models():
     try:
         df = pd.read_csv("data/MODELS.csv", sep=";")
@@ -31,26 +39,26 @@ def get_available_models():
     except (FileNotFoundError, pd.errors.EmptyDataError):
         return []
 
-def map_model_predictions(id='main', title=""):
+def map_model_predictions(id='main', vmin=None, vmax=None):
     target_id = 1 if id == 'main' else id
     
     with st.spinner(f"Loading predictions..."):
-        gdf, min_v, max_v = data_loader.load_model_predictions(id=target_id)
-        denom = (max_v - min_v) if max_v != min_v else 1
+        gdf, _, _ = data_loader.load_model_predictions(id=target_id)
+        denom = (vmax - vmin) if vmax != vmin else 1
         
         layer = pdk.Layer(
             "GeoJsonLayer",
             data=gdf,
             get_fill_color=f"""
             [
-                128 + ( (properties.y_pred - {min_v}) / {denom} * 127 ), 
-                0 + ( (properties.y_pred - {min_v}) / {denom} * 255 ), 
-                128 - ( (properties.y_pred - {min_v}) / {denom} * 128 ), 
+                128 + ( (properties.y_pred - {vmin}) / {denom} * 127 ), 
+                0 + ( (properties.y_pred - {vmin}) / {denom} * 255 ), 
+                128 - ( (properties.y_pred - {vmin}) / {denom} * 128 ), 
                 160
             ]
             """,
-            get_line_color=[0, 20, 0],
-            line_width_min_pixels=1,
+            get_line_color=[9,19,29],
+            line_width_min_pixels=0.8,
             pickable=True,
         )
 
@@ -61,9 +69,55 @@ def map_model_predictions(id='main', title=""):
                     latitude=48.3, longitude=11.2, zoom=3.5
                 ),
                 layers=[layer],
-                tooltip={"html": "<b>Annual Ticks in {nuts_id}</b>: {y_pred}", "style": {"color": "white"}}
+                tooltip={"html": "<b>Annual Ticks in {nuts_id}</b>: {y_pred}", "style": {"color": "white"}},
             )
         )
+
+def vertical_gradient_legend(vmin, vmax, height_px=450, margin_top=50):
+    return f"""
+<div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    width: 100%; 
+    margin-top: {margin_top}px;
+    font-family: 'Source Sans Pro', sans-serif;
+">
+    <div style="text-align: center;">
+        <div style="
+            font-weight: 800; 
+            font-size: 20px; 
+            margin-bottom: 12px;
+            color: #31333F;
+        ">
+            {vmax}
+        </div>
+
+        <div style="
+            width: 32px;
+            height: {height_px}px;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,0, 0.63),
+                rgba(128,0,128, 0.63)
+            );
+            border: 1px solid #31333F;
+            # border-radius: 6px;
+            margin: 0 auto;
+        "></div>
+
+        <div style="
+            font-weight: 800; 
+            font-size: 20px; 
+            margin-top: 12px;
+            color: #31333F;
+        ">
+            {vmin}
+        </div>
+    </div>
+</div>
+""".strip()
 
 @st.fragment
 def training_section():
@@ -75,7 +129,7 @@ def training_section():
         st.success("Trained!")
         st.rerun()
 
-col1, col2 = st.columns([1, 1])
+col1, col_null, col2 = st.columns([1,0.1, 1])
 
 with col1:
     st.markdown("#### Main model predictions")
@@ -112,11 +166,24 @@ with col2:
         if selected_tuple:
             st.session_state['selected_second_id'] = int(selected_tuple[0])
 
-col1, col2 = st.columns([1, 1])
+main_min, main_max = st.session_state["main_model_range"]
+
+# drugi model (zmienny)
+_, sec_min, sec_max = data_loader.load_model_predictions(
+    id=st.session_state["selected_second_id"]
+)
+
+# NAJSZERSZY możliwy zakres
+global_min = min(main_min, sec_min)
+global_max = max(main_max, sec_max)
+
+col1, col_legend,col2 = st.columns([1, 0.1, 1])
 with col1:
-    map_model_predictions(id='main')
+    map_model_predictions(id='main', vmin=global_min, vmax=global_max)
+with col_legend:
+    st.html(vertical_gradient_legend(global_min, global_max, height_px=350, margin_top=0))
 with col2:
-    map_model_predictions(id=st.session_state['selected_second_id'])
+    map_model_predictions(id=st.session_state['selected_second_id'], vmin=global_min, vmax=global_max)
 
 st.divider()
 col1, col_divider, col2 = st.columns([1, 0.1, 1])

@@ -40,12 +40,14 @@ def load_model_predictions(id = 1):
 
     gdf_model = gpd.read_file(GPKG_PATH).to_crs(epsg=4326)
     gdf_model['geometry'] = gdf_model['geometry'].simplify(tolerance=0.01)
+    gdf_model['y_pred'] = gdf_model['y_pred'].round(0).astype(int)
+    gdf_model["y_pred"] = gdf_model["y_pred"].apply(lambda x: x if x >= 0 else 0)
     min_val = gdf_model['y_pred'].min()
     max_val = gdf_model['y_pred'].max()
 
     gdf = gdf_model.__geo_interface__
 
-    return (gdf, min_val, max_val)
+    return (gdf, round(min_val,0), round(max_val,0))
 
 @st.cache_data
 def load_data_coverage_image():
