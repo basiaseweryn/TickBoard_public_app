@@ -34,6 +34,20 @@ with col1:
     **Institution**: Faculty of Mathematics and Information Science, Warsaw University of Technology
     """)
 
+    st.markdown("""
+    **Data sources and scientific references:**
+    - Tick abundance data  
+    **GBIF.org User (2025)**. *Occurrence Download*.  
+      Global Biodiversity Information Facility.  
+      DOI: https://doi.org/10.15468/DL.HSPHDQ
+
+    - Environmental data  
+    **Estrada-Peña, A., & de la Fuente, J. (2024)**.  
+      *Machine learning algorithms for the evaluation of risk by tick-borne pathogens in Europe*.  
+      Annals of Medicine, 56(1), 2405074.  
+      DOI: https://doi.org/10.1080/07853890.2024.2405074
+    """)
+
     st.divider()
     st.markdown("#### Problem outline")
     st.markdown("""
