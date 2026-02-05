@@ -5,10 +5,10 @@ import pydeck as pdk
 import time
 import numpy as np
 import utils.data_loader as data_loader
-import utils.model_training as model_training
+
 from branca.colormap import linear
 importlib.reload(data_loader)
-importlib.reload(model_training)
+
 st.cache_data.clear()
 
 
